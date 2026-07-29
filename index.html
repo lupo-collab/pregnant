@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nine Months 🤰 Pregnancy Tracker</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>🤰 Nine Months</h1>
+    <p class="tagline">A little tracker for a big journey</p>
+  </header>
+
+  <main>
+    <!-- Due date setup -->
+    <section class="card" id="setup-card">
+      <h2>When's your little one due?</h2>
+      <div class="setup-row">
+        <label for="due-date">Due date</label>
+        <input type="date" id="due-date" />
+        <button id="save-due-date" class="btn btn-primary">Set date</button>
+      </div>
+      <p class="hint">Don't know your due date? Use the week slider below instead — everything still works!</p>
+    </section>
+
+    <!-- Week navigator -->
+    <section class="card" id="week-card">
+      <div class="week-nav">
+        <button id="prev-week" class="btn btn-round" aria-label="Previous week">←</button>
+        <div class="week-label">
+          <span id="week-number">Week 1</span>
+          <span id="trimester-badge" class="badge">1st trimester</span>
+        </div>
+        <button id="next-week" class="btn btn-round" aria-label="Next week">→</button>
+      </div>
+
+      <input type="range" id="week-slider" min="1" max="40" value="1" />
+
+      <div class="progress-wrap">
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+        <span id="progress-text">0% there</span>
+      </div>
+
+      <div class="button-row">
+        <button id="today-btn" class="btn btn-secondary">📅 Jump to today's week</button>
+        <button id="surprise-btn" class="btn btn-secondary">🎲 Surprise me</button>
+      </div>
+    </section>
+
+    <!-- Size visual -->
+    <section class="card" id="size-card">
+      <h2>How big is baby this week?</h2>
+      <div class="animal-visual">
+        <div id="animal-emoji" class="animal-emoji">🌱</div>
+        <div class="animal-info">
+          <div id="animal-name" class="animal-name">—</div>
+          <div id="animal-size" class="animal-size">—</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tips -->
+    <section class="card" id="tips-card">
+      <h2>Tips for this week</h2>
+      <ul id="tips-list" class="tips-list"></ul>
+    </section>
+
+    <!-- Trackers -->
+    <section class="card" id="trackers-card">
+      <h2>Daily trackers</h2>
+
+      <div class="tracker">
+        <h3>👣 Kick counter <span class="tracker-hint">(today)</span></h3>
+        <div class="tracker-row">
+          <button id="kick-decrement" class="btn btn-round">−</button>
+          <span id="kick-count" class="tracker-count">0</span>
+          <button id="kick-increment" class="btn btn-round btn-primary">+ Kick</button>
+          <button id="kick-reset" class="btn btn-text">reset</button>
+        </div>
+        <p id="kick-last" class="hint">No kicks logged yet today.</p>
+      </div>
+
+      <div class="tracker">
+        <h3>💧 Water intake <span class="tracker-hint">(today, goal: 8 glasses)</span></h3>
+        <div class="tracker-row">
+          <button id="water-decrement" class="btn btn-round">−</button>
+          <span id="water-count" class="tracker-count">0</span>
+          <button id="water-increment" class="btn btn-round btn-primary">+ Glass</button>
+        </div>
+        <div class="progress-bar small"><div class="progress-fill" id="water-fill"></div></div>
+      </div>
+
+      <div class="tracker">
+        <h3>🙂 Mood &amp; symptom log</h3>
+        <div class="mood-picker" id="mood-picker">
+          <button class="mood-btn" data-mood="😄">😄</button>
+          <button class="mood-btn" data-mood="🙂">🙂</button>
+          <button class="mood-btn" data-mood="😐">😐</button>
+          <button class="mood-btn" data-mood="😣">😣</button>
+          <button class="mood-btn" data-mood="😴">😴</button>
+          <button class="mood-btn" data-mood="🤢">🤢</button>
+        </div>
+        <div class="mood-note-row">
+          <input type="text" id="mood-note" placeholder="Optional note (e.g. backache, craving pickles...)" />
+          <button id="mood-add" class="btn btn-primary">Log</button>
+        </div>
+        <ul id="mood-log" class="mood-log"></ul>
+      </div>
+
+      <div class="tracker">
+        <h3>📝 Notes for week <span id="notes-week-number">1</span></h3>
+        <textarea id="week-notes" placeholder="Jot down anything you want to remember about this week..."></textarea>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>Made with love for someone who's growing a whole human. 💛</p>
+    <p class="disclaimer">This app is for fun and general guidance only — it isn't medical advice. Always check with your midwife or doctor about your pregnancy.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
